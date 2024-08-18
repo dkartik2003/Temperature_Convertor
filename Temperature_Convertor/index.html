@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: rgba(255, 254, 253, 0.663);
+      }
+      h1 {
+        color: rgb(115, 115, 215);
+      }
+      #form {
+        background-color: rgb(221, 209, 209);
+        text-align: center;
+        border: none;
+        width: 500px;
+        margin: auto;
+        padding-top: 40px;
+        padding-bottom: 40px;
+        border-radius: 15px;
+        box-shadow: 5px 3px 15px rgb(45, 44, 88);
+      }
+      #textbox {
+        width: 50%;
+        margin: 0px;
+        text-align: center;
+        font-size: 1.5em;
+        outline: none;
+        border: none;
+        border-radius: 5px;
+        margin-bottom: 15px;
+        margin-top: 25px;;
+      }
+      label{
+        font-size: 1.2em;
+        font-weight: bold;
+        
+      }
+button{
+  margin-top: 15px;
+  background-color: red;
+  font-size: 1.2em;
+  border-radius: 12px;
+  outline: none;
+  margin: none;
+  border:0.02em solid ;
+  margin-bottom: 20px;
+  color:aliceblue;
+  cursor:pointer;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 15px;
+  padding-right: 15px; 
+  
+}
+button:hover{
+  background-color: crimson;
+  color: white;
+}
+#result{
+  font-size: 1.5em;
+  font-weight: bold;
+}
+</style>
+  </head>
+  <body>
+    <form action="" id="form">
+      <h1>Temperature Convertor</h1>
+      <input type="number" id="textbox" value="0" /><br />
+      <input type="radio" id="toFahrenheit" name="unit" />
+      <label for="toFahrenheit">Celsius➡️Fahreiheit </label><br />
+      <input type="radio" id="toCelsius" name="unit" />
+      <label for="toCelsius">Fahreiheit➡️Celsius </label><br />
+      <button id="button">Convert</button>
+      <p id="result"></p>
+    </form>
+    <script>
+      const textbox=document.getElementById("textbox");
+      const toFahrenheit=document.getElementById("toFahrenheit");
+      const toCelsius=document.getElementById("toCelsius");
+      const result=document.getElementById("result");
+let temp;
+      const button = document.getElementById("button");
+      button.onclick = function () {
+       if(toFahrenheit.checked){
+temp=Number(textbox.value);
+temp=temp*9/5+32;
+result.textContent=`${temp.toFixed(1)} Fahrehheit`;
+       }else if(toCelsius.checked){
+        temp=Number(textbox.value);
+temp=(temp-32)*(5/9);
+result.textContent=`${temp.toFixed(1)} Celsius`;
+       }else{
+        result.textContent="Select a Unit";
+       }
+      }
+    </script>
+  </body>
+</html>
